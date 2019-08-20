@@ -391,7 +391,7 @@ def cell_type_specific(args, log):
         M_annot = np.hstack([M_cts, M_annot_all_regr])
         hsqhat = reg.Hsq(s(chisq), ref_ld, s(sumstats[w_ld_cname]), s(sumstats.N),
                     M_annot, n_blocks=n_blocks, intercept=args.intercept_h2,
-                    twostep=None, old_weights=True, snp_names=sumstats['SNP'], annotation_names=ref_ld_cnames)
+                    twostep=None, old_weights=True, snp_names=sumstats['SNP'], annotation_names=ref_ld_cnames_all_regr)
         coef, coef_se = hsqhat.coef[0], hsqhat.coef_se[0]
         results_data.append((name, coef, coef_se, stats.norm.sf(coef/coef_se)))
         if args.print_all_cts:
